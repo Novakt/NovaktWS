@@ -1,0 +1,46 @@
+services:
+#    api.example:
+#        class: ApiBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    api.admin.categorie:
+        class: ApiBundle\Admin\CategorieAdmin
+        arguments: [~, ApiBundle\Entity\Categorie, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Categorie }
+
+    api.admin.produit:
+        class: ApiBundle\Admin\ProduitAdmin
+        arguments: [~, ApiBundle\Entity\Produit, ApiBundle:ProduitAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Produit }
+
+    api.admin.chantier:
+        class: ApiBundle\Admin\ChantierAdmin
+        arguments: [~, ApiBundle\Entity\Chantier, ApiBundle:ChantierAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Chantier }
+
+    api.admin.estimation:
+        class: ApiBundle\Admin\EstimationAdmin
+        arguments: [~, ApiBundle\Entity\Estimation, ApiBundle:EstimationAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Estimation }
+
+    api.admin.client:
+        class: ApiBundle\Admin\ClientAdmin
+        arguments: [~, ApiBundle\Entity\Client, ApiBundle:ClientAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Client }
+
+    api.admin.commercial:
+        class: ApiBundle\Admin\CommercialAdmin
+        arguments: [~, ApiBundle\Entity\Commercial, ApiBundle:CommercialAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Commercial }
+
+    api.admin.ingenieur:
+        class: ApiBundle\Admin\IngenieurAdmin
+        arguments: [~, ApiBundle\Entity\Ingenieur, ApiBundle:IngenieurAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Ingenieur }

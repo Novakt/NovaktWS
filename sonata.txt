@@ -1,0 +1,8 @@
+## Generer controller ##
+php bin/console sonata:admin:generate Produit
+ApiBundle\Entity\Produit
+yes
+
+## liens ##
+
+https://sonata-project.org/bundles/admin/master/doc/reference/console.html
