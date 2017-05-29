@@ -6,5 +6,9 @@ chantier :
   type: rest
   resource:     "ApiBundle:ChantierRest"
   name_prefix:  api_
+client : 
+  type: rest
+  resource:     "ApiBundle:ClientRest"
+  name_prefix:  api_
 
 

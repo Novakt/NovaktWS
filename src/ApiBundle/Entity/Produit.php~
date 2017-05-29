@@ -3,6 +3,7 @@
 namespace ApiBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Exclude;
 
 /**
  * Produit
@@ -57,20 +58,29 @@ class Produit
      */
     private $lienImage;
     /**
-    * @ORM\ManyToMany(targetEntity="Estimation", inversedBy="produits")
-    * @ORM\JoinTable(name="produits_estimations")
+    * @ORM\ManyToMany(targetEntity="Estimation", mappedBy="produits")
+    * @Exclude()
     * 
     */
     private $estimations;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Chantier", inversedBy="produits")
-     * @ORM\JoinTable(name="produits_chantiers")
+     * @ORM\ManyToMany(targetEntity="Chantier", mappedBy="chantiers")
+     * @Exclude()
      *
      */
     private $chantiers;
     
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Categorie",inversedBy="produits")
+     * @ORM\JoinColumn(name="categorie_id",referencedColumnName="id")
+     * @var \ApiBundle\Entity\Produit
+     * @Exclude()
+     */
     private $categorie;
+    
+    
 
     public function __construct() {
     	$this->estimations = new \Doctrine\Common\Collections\ArrayCollection();
@@ -213,5 +223,72 @@ class Produit
     {
         return $this->lienImage;
     }
-}
 
+    /**
+     * Add estimation
+     *
+     * @param \ApiBundle\Entity\Estimation $estimation
+     *
+     * @return Produit
+     */
+    public function addEstimation(\ApiBundle\Entity\Estimation $estimation)
+    {
+        $this->estimations[] = $estimation;
+
+        return $this;
+    }
+
+    /**
+     * Remove estimation
+     *
+     * @param \ApiBundle\Entity\Estimation $estimation
+     */
+    public function removeEstimation(\ApiBundle\Entity\Estimation $estimation)
+    {
+        $this->estimations->removeElement($estimation);
+    }
+
+    /**
+     * Get estimations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEstimations()
+    {
+        return $this->estimations;
+    }
+
+    /**
+     * Add chantier
+     *
+     * @param \ApiBundle\Entity\Chantier $chantier
+     *
+     * @return Produit
+     */
+    public function addChantier(\ApiBundle\Entity\Chantier $chantier)
+    {
+        $this->chantiers[] = $chantier;
+
+        return $this;
+    }
+
+    /**
+     * Remove chantier
+     *
+     * @param \ApiBundle\Entity\Chantier $chantier
+     */
+    public function removeChantier(\ApiBundle\Entity\Chantier $chantier)
+    {
+        $this->chantiers->removeElement($chantier);
+    }
+
+    /**
+     * Get chantiers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChantiers()
+    {
+        return $this->chantiers;
+    }
+}

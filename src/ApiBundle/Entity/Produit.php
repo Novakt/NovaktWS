@@ -75,10 +75,12 @@ class Produit
     /**
      * @ORM\ManyToOne(targetEntity="Categorie",inversedBy="produits")
      * @ORM\JoinColumn(name="categorie_id",referencedColumnName="id")
-     * @var \ApiBundle\Entity\Categorie
+     * @var \ApiBundle\Entity\Produit
      * @Exclude()
      */
     private $categorie;
+    
+    
 
     public function __construct() {
     	$this->estimations = new \Doctrine\Common\Collections\ArrayCollection();
@@ -288,5 +290,29 @@ class Produit
     public function getChantiers()
     {
         return $this->chantiers;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \ApiBundle\Entity\Categorie $categorie
+     *
+     * @return Produit
+     */
+    public function setCategorie(\ApiBundle\Entity\Categorie $categorie = null)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \ApiBundle\Entity\Categorie
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }

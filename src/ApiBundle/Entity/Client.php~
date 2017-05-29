@@ -4,7 +4,6 @@ namespace ApiBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use JMS\Serializer\Annotation\Exclude;
 
 /**
  * Client
@@ -66,9 +65,8 @@ class Client
     
     /**
      * @ORM\ManyToOne(targetEntity="Commercial",inversedBy="clients")
-     * @ORM\JoinColumn(name="commercial_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="client_id",referencedColumnName="id")
      * @var \ApiBundle\Entity\Client
-     * @Exclude
      */
     private $commercial;
 
@@ -206,62 +204,5 @@ class Client
     {
         return $this->mail;
     }
-
-    /**
-     * Add estimation
-     *
-     * @param \ApiBundle\Entity\Estimation $estimation
-     *
-     * @return Client
-     */
-    public function addEstimation(\ApiBundle\Entity\Estimation $estimation)
-    {
-        $this->estimations[] = $estimation;
-
-        return $this;
-    }
-
-    /**
-     * Remove estimation
-     *
-     * @param \ApiBundle\Entity\Estimation $estimation
-     */
-    public function removeEstimation(\ApiBundle\Entity\Estimation $estimation)
-    {
-        $this->estimations->removeElement($estimation);
-    }
-
-    /**
-     * Get estimations
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEstimations()
-    {
-        return $this->estimations;
-    }
-
-    /**
-     * Set commercial
-     *
-     * @param \ApiBundle\Entity\Commercial $commercial
-     *
-     * @return Client
-     */
-    public function setCommercial(\ApiBundle\Entity\Commercial $commercial = null)
-    {
-        $this->commercial = $commercial;
-
-        return $this;
-    }
-
-    /**
-     * Get commercial
-     *
-     * @return \ApiBundle\Entity\Commercial
-     */
-    public function getCommercial()
-    {
-        return $this->commercial;
-    }
 }
+

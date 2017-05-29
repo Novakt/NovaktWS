@@ -56,6 +56,7 @@ class ProduitAdmin extends AbstractAdmin
             ->add('type')
             ->add('description')
             ->add('lienImage')
+            ->add('categorie','sonata_type_model', array('class' => 'ApiBundle\Entity\Categorie', 'property' => 'nom'))
         ;
     }
 
