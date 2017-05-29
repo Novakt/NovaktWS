@@ -3,6 +3,7 @@
 namespace ApiBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Exclude;
 
 /**
  * Produit
@@ -57,15 +58,15 @@ class Produit
      */
     private $lienImage;
     /**
-    * @ORM\ManyToMany(targetEntity="Estimation", inversedBy="produits")
-    * @ORM\JoinTable(name="produits_estimations")
+    * @ORM\ManyToMany(targetEntity="Estimation", mappedBy="produits")
+    * @Exclude()
     * 
     */
     private $estimations;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Chantier", inversedBy="produits")
-     * @ORM\JoinTable(name="produits_chantiers")
+     * @ORM\ManyToMany(targetEntity="Chantier", mappedBy="chantiers")
+     * @Exclude()
      *
      */
     private $chantiers;
@@ -75,6 +76,7 @@ class Produit
      * @ORM\ManyToOne(targetEntity="Categorie",inversedBy="produits")
      * @ORM\JoinColumn(name="categorie_id",referencedColumnName="id")
      * @var \ApiBundle\Entity\Categorie
+     * @Exclude()
      */
     private $categorie;
 

@@ -79,7 +79,7 @@ class ChantierAdmin extends AbstractAdmin
             			'class'    => 'ApiBundle\Entity\Produit',
                         'expanded' => false,
             			'by_reference' => false,
-                        'property' => 'id'
+                        'property' => 'reference'
                     ])
         ;
     }

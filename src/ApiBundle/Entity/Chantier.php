@@ -99,8 +99,12 @@ class Chantier
     private $description;
     
     /**
-     * Many Groups have Many Users.
-     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="produits")
+     * 
+     * @ORM\ManyToMany(targetEntity="Produit", inversedBy="chantiers")
+     * @ORM\JoinTable(name="produit_chantier",
+     * 					joinColumns={ @ORM\JoinColumn(name="chantier_id",referencedColumnName="id")},
+     * 					inverseJoinColumns={@ORM\JoinColumn(name="produit_id",referencedColumnName="id")})
+     * @var \ApiBundle\Entity\Chantier
      */
     private $produits;
     

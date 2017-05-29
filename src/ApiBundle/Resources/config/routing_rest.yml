@@ -2,5 +2,9 @@ categorie :
   type: rest
   resource:     "ApiBundle:CategorieRest"
   name_prefix:  api_
+chantier : 
+  type: rest
+  resource:     "ApiBundle:ChantierRest"
+  name_prefix:  api_
 
 

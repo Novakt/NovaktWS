@@ -92,8 +92,10 @@ class Estimation
     private $client;
     
     /**
-     * Many Groups have Many Users.
-     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="produits")
+     * @ORM\ManyToMany(targetEntity="Produit", inversedBy="produits")
+     * @ORM\JoinTable(name="produit_estimation",
+     * 					joinColumns={ @ORM\JoinColumn(name="chantier_id",referencedColumnName="id")},
+     * 					inverseJoinColumns={@ORM\JoinColumn(name="produit_id",referencedColumnName="id")})
      */
     private $produits;
 
