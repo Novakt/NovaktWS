@@ -16,7 +16,6 @@ class ChantierAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('nom')
             ->add('lienImage')
             ->add('secteur')
@@ -37,7 +36,6 @@ class ChantierAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('nom')
             ->add('lienImage')
             ->add('secteur')
@@ -65,7 +63,6 @@ class ChantierAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
             ->add('nom')
             ->add('lienImage')
             ->add('secteur')
@@ -77,6 +74,13 @@ class ChantierAdmin extends AbstractAdmin
             ->add('lieu')
             ->add('etages')
             ->add('description')
+            ->add('produits', 'sonata_type_model', [
+                        'multiple' => true,
+            			'class'    => 'ApiBundle\Entity\Produit',
+                        'expanded' => false,
+            			'by_reference' => false,
+                        'property' => 'id'
+                    ])
         ;
     }
 
@@ -86,7 +90,6 @@ class ChantierAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('id')
             ->add('nom')
             ->add('lienImage')
             ->add('secteur')

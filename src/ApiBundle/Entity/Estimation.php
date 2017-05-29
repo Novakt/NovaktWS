@@ -90,8 +90,16 @@ class Estimation
      * @var \ApiBundle\Entity\Client
      */
     private $client;
+    
+    /**
+     * Many Groups have Many Users.
+     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="produits")
+     */
+    private $produits;
 
-
+    public function __construct() {
+    	$this->produits = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     
     /**
      * Get id
@@ -331,5 +339,38 @@ class Estimation
     {
     	return $this->client;
     }
-}
 
+    /**
+     * Add produit
+     *
+     * @param \ApiBundle\Entity\Produit $produit
+     *
+     * @return Estimation
+     */
+    public function addProduit(\ApiBundle\Entity\Produit $produit)
+    {
+        $this->produits[] = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Remove produit
+     *
+     * @param \ApiBundle\Entity\Produit $produit
+     */
+    public function removeProduit(\ApiBundle\Entity\Produit $produit)
+    {
+        $this->produits->removeElement($produit);
+    }
+
+    /**
+     * Get produits
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduits()
+    {
+        return $this->produits;
+    }
+}

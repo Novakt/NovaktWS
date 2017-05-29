@@ -1,0 +1,6 @@
+categorie : 
+  type: rest
+  resource:     "ApiBundle:CategorieRest"
+  name_prefix:  api_
+
+

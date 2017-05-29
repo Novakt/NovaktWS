@@ -9,24 +9,6 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Categorie }
 
-    api.admin.produit:
-        class: ApiBundle\Admin\ProduitAdmin
-        arguments: [~, ApiBundle\Entity\Produit, ApiBundle:ProduitAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Produit }
-
-    api.admin.chantier:
-        class: ApiBundle\Admin\ChantierAdmin
-        arguments: [~, ApiBundle\Entity\Chantier, ApiBundle:ChantierAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Chantier }
-
-    api.admin.estimation:
-        class: ApiBundle\Admin\EstimationAdmin
-        arguments: [~, ApiBundle\Entity\Estimation, ApiBundle:EstimationAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Estimation }
-
     api.admin.client:
         class: ApiBundle\Admin\ClientAdmin
         arguments: [~, ApiBundle\Entity\Client, ApiBundle:ClientAdmin]
@@ -44,3 +26,21 @@ services:
         arguments: [~, ApiBundle\Entity\Ingenieur, ApiBundle:IngenieurAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Ingenieur }
+
+    api.admin.produit:
+        class: ApiBundle\Admin\ProduitAdmin
+        arguments: [~, ApiBundle\Entity\Produit, ApiBundle:ProduitAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Produit }
+
+    api.admin.estimation:
+        class: ApiBundle\Admin\EstimationAdmin
+        arguments: [~, ApiBundle\Entity\Estimation, ApiBundle:EstimationAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Estimation }
+
+    api.admin.chantier:
+        class: ApiBundle\Admin\ChantierAdmin
+        arguments: [~, ApiBundle\Entity\Chantier, ApiBundle:ChantierAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Chantier }

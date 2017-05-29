@@ -382,38 +382,5 @@ class Chantier
     {
         return $this->etages;
     }
-
-    /**
-     * Add produit
-     *
-     * @param \ApiBundle\Entity\Produit $produit
-     *
-     * @return Chantier
-     */
-    public function addProduit(\ApiBundle\Entity\Produit $produit)
-    {
-        $this->produits[] = $produit;
-
-        return $this;
-    }
-
-    /**
-     * Remove produit
-     *
-     * @param \ApiBundle\Entity\Produit $produit
-     */
-    public function removeProduit(\ApiBundle\Entity\Produit $produit)
-    {
-        $this->produits->removeElement($produit);
-    }
-
-    /**
-     * Get produits
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProduits()
-    {
-        return $this->produits;
-    }
 }
+

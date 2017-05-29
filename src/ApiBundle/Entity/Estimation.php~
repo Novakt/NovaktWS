@@ -5,12 +5,12 @@ namespace ApiBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Chantier
+ * Estimation
  *
- * @ORM\Table(name="chantier")
- * @ORM\Entity(repositoryClass="ApiBundle\Repository\ChantierRepository")
+ * @ORM\Table(name="estimation")
+ * @ORM\Entity(repositoryClass="ApiBundle\Repository\EstimationRepository")
  */
-class Chantier
+class Estimation
 {
     /**
      * @var int
@@ -24,16 +24,16 @@ class Chantier
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="libelle", type="string", length=255)
      */
-    private $nom;
+    private $libelle;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="lienImage", type="string", length=255)
+     * @ORM\Column(name="dateCreation", type="datetime")
      */
-    private $lienImage;
+    private $dateCreation;
 
     /**
      * @var string
@@ -78,37 +78,29 @@ class Chantier
     private $temperatureMoyenne;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="lieu", type="string", length=255)
-     */
-    private $lieu;
-
-    /**
      * @var int
      *
-     * @ORM\Column(name="etages", type="smallint")
+     * @ORM\Column(name="nbEtages", type="smallint")
      */
-    private $etages;
+    private $nbEtages;
     
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Client",inversedBy="estimations")
+     * @ORM\JoinColumn(name="client_id",referencedColumnName="id")
+     * @var \ApiBundle\Entity\Client
      */
-    private $description;
+    private $client;
     
     /**
      * Many Groups have Many Users.
      * @ORM\ManyToMany(targetEntity="Produit", mappedBy="produits")
      */
     private $produits;
-    
+
     public function __construct() {
     	$this->produits = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
-
     /**
      * Get id
      *
@@ -120,51 +112,51 @@ class Chantier
     }
 
     /**
-     * Set nom
+     * Set libelle
      *
-     * @param string $nom
+     * @param string $libelle
      *
-     * @return Chantier
+     * @return Estimation
      */
-    public function setNom($nom)
+    public function setLibelle($libelle)
     {
-        $this->nom = $nom;
+        $this->libelle = $libelle;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get libelle
      *
      * @return string
      */
-    public function getNom()
+    public function getLibelle()
     {
-        return $this->nom;
+        return $this->libelle;
     }
 
     /**
-     * Set lienImage
+     * Set dateCreation
      *
-     * @param string $lienImage
+     * @param \DateTime $dateCreation
      *
-     * @return Chantier
+     * @return Estimation
      */
-    public function setLienImage($lienImage)
+    public function setDateCreation($dateCreation)
     {
-        $this->lienImage = $lienImage;
+        $this->dateCreation = $dateCreation;
 
         return $this;
     }
 
     /**
-     * Get lienImage
+     * Get dateCreation
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getLienImage()
+    public function getDateCreation()
     {
-        return $this->lienImage;
+        return $this->dateCreation;
     }
 
     /**
@@ -172,7 +164,7 @@ class Chantier
      *
      * @param string $secteur
      *
-     * @return Chantier
+     * @return Estimation
      */
     public function setSecteur($secteur)
     {
@@ -196,7 +188,7 @@ class Chantier
      *
      * @param string $surface
      *
-     * @return Chantier
+     * @return Estimation
      */
     public function setSurface($surface)
     {
@@ -220,7 +212,7 @@ class Chantier
      *
      * @param integer $nbBatiment
      *
-     * @return Chantier
+     * @return Estimation
      */
     public function setNbBatiment($nbBatiment)
     {
@@ -244,7 +236,7 @@ class Chantier
      *
      * @param string $typeChantier
      *
-     * @return Chantier
+     * @return Estimation
      */
     public function setTypeChantier($typeChantier)
     {
@@ -268,7 +260,7 @@ class Chantier
      *
      * @param string $typeBatiment
      *
-     * @return Chantier
+     * @return Estimation
      */
     public function setTypeBatiment($typeBatiment)
     {
@@ -292,7 +284,7 @@ class Chantier
      *
      * @param integer $temperatureMoyenne
      *
-     * @return Chantier
+     * @return Estimation
      */
     public function setTemperatureMoyenne($temperatureMoyenne)
     {
@@ -312,108 +304,40 @@ class Chantier
     }
 
     /**
-     * Set lieu
+     * Set nbEtages
      *
-     * @param string $lieu
+     * @param integer $nbEtages
      *
-     * @return Chantier
+     * @return Estimation
      */
-    public function setLieu($lieu)
+    public function setNbEtages($nbEtages)
     {
-        $this->lieu = $lieu;
+        $this->nbEtages = $nbEtages;
 
         return $this;
     }
 
     /**
-     * Get lieu
+     * Get nbEtages
      *
-     * @return string
+     * @return int
      */
-    public function getLieu()
+    public function getNbEtages()
     {
-        return $this->lieu;
+        return $this->nbEtages;
     }
     
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Chantier
-     */
-    public function setDescription($description)
+    public function setClient($client)
     {
-    	$this->description = $description;
+    	$this->client = $client;
     
     	return $this;
     }
     
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
+    
+    public function getClient()
     {
-    	return $this->description;
-    }
-
-    /**
-     * Set etages
-     *
-     * @param integer $etages
-     *
-     * @return Chantier
-     */
-    public function setEtages($etages)
-    {
-        $this->etages = $etages;
-
-        return $this;
-    }
-
-    /**
-     * Get etages
-     *
-     * @return int
-     */
-    public function getEtages()
-    {
-        return $this->etages;
-    }
-
-    /**
-     * Add produit
-     *
-     * @param \ApiBundle\Entity\Produit $produit
-     *
-     * @return Chantier
-     */
-    public function addProduit(\ApiBundle\Entity\Produit $produit)
-    {
-        $this->produits[] = $produit;
-
-        return $this;
-    }
-
-    /**
-     * Remove produit
-     *
-     * @param \ApiBundle\Entity\Produit $produit
-     */
-    public function removeProduit(\ApiBundle\Entity\Produit $produit)
-    {
-        $this->produits->removeElement($produit);
-    }
-
-    /**
-     * Get produits
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProduits()
-    {
-        return $this->produits;
+    	return $this->client;
     }
 }
+
