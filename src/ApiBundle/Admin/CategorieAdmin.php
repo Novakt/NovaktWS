@@ -47,6 +47,13 @@ class CategorieAdmin extends AbstractAdmin
         $formMapper
             ->add('nom')
             ->add('lienImage')
+            ->add('produits', 'sonata_type_model', [
+            		'multiple' => true,
+            		'class'    => 'ApiBundle\Entity\Produit',
+            		'expanded' => true,
+            		'by_reference' => false,
+            		'property' => 'nom'
+            ])
         ;
     }
 

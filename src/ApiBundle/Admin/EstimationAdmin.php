@@ -73,7 +73,7 @@ class EstimationAdmin extends AbstractAdmin
             		'class'    => 'ApiBundle\Entity\Produit',
             		'expanded' => true,
             		'by_reference' => false,
-            		'property' => 'reference'
+            		'property' => 'nom'
             ])
             ->add('client','sonata_type_model', array('class' => 'ApiBundle\Entity\Client', 'property' => 'intitule'))
         ;
