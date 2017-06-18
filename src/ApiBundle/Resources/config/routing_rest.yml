@@ -10,5 +10,9 @@ client :
   type: rest
   resource:     "ApiBundle:ClientRest"
   name_prefix:  api_
+login :
+  type: rest
+  resource:     "ApiBundle:CommercialRest"
+  name_prefix:  api_
 
 

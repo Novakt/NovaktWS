@@ -24,21 +24,21 @@ class ChantierRestController extends BaseController
 
 		// VERIF TOKEN
 		// Si le paramètre reçu est inconnu/invalide
-		/*if($this->token == null)  {
+		if($this->token == null)  {
 			$response->setStatusCode(Response::HTTP_BAD_REQUEST);
 			$response->setContent("Paramètre(s) reçu(s) invalide(s)");
 			return $response;
-		}*/
+		}
 
 		// Si token invalide : accès refusé
 
-		/*if(!$this->isValid()) {
+		if(!$this->isValid()) {
 		 $response->setStatusCode(Response::HTTP_FORBIDDEN);
 			$response->setContent("Connexion refusee, veuillez vous authentifier avec un token valide");
 			return $response;
-			}*/
+			}
 
-		//GET  CATEGORIES ET PRODUITS
+		//GET  CHANTIERS
 		$chantiers = $this->getChantiers();
 
 		// RETURN

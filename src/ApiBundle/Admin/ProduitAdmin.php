@@ -16,11 +16,14 @@ class ProduitAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('reference')
             ->add('nom')
             ->add('type')
             ->add('description')
             ->add('lienImage')
+            ->add('puissanceChaud')
+            ->add('puissanceFroid')
         ;
     }
 
@@ -30,11 +33,14 @@ class ProduitAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('id')
             ->add('reference')
             ->add('nom')
             ->add('type')
             ->add('description')
             ->add('lienImage')
+            ->add('puissanceChaud')
+            ->add('puissanceFroid')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -51,12 +57,14 @@ class ProduitAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('id')
             ->add('reference')
             ->add('nom')
             ->add('type')
             ->add('description')
             ->add('lienImage')
-            ->add('categorie','sonata_type_model', array('class' => 'ApiBundle\Entity\Categorie', 'property' => 'nom'))
+            ->add('puissanceChaud')
+            ->add('puissanceFroid')
         ;
     }
 
@@ -66,11 +74,14 @@ class ProduitAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('id')
             ->add('reference')
             ->add('nom')
             ->add('type')
             ->add('description')
             ->add('lienImage')
+            ->add('puissanceChaud')
+            ->add('puissanceFroid')
         ;
     }
 }

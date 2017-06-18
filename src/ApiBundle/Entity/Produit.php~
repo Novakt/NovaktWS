@@ -80,6 +80,19 @@ class Produit
      */
     private $categorie;
     
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissanceChaud", type="integer")
+     */
+    private $puissanceChaud;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissanceFroid", type="integer")
+     */
+    private $puissanceFroid;
+    
     
 
     public function __construct() {
@@ -290,5 +303,29 @@ class Produit
     public function getChantiers()
     {
         return $this->chantiers;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \ApiBundle\Entity\Categorie $categorie
+     *
+     * @return Produit
+     */
+    public function setCategorie(\ApiBundle\Entity\Categorie $categorie = null)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \ApiBundle\Entity\Categorie
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }

@@ -80,6 +80,19 @@ class Produit
      */
     private $categorie;
     
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissanceChaud", type="integer")
+     */
+    private $puissanceChaud;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissanceFroid", type="integer")
+     */
+    private $puissanceFroid;
+    
     
 
     public function __construct() {
@@ -314,5 +327,53 @@ class Produit
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set puissanceChaud
+     *
+     * @param integer $puissanceChaud
+     *
+     * @return Produit
+     */
+    public function setPuissanceChaud($puissanceChaud)
+    {
+        $this->puissanceChaud = $puissanceChaud;
+
+        return $this;
+    }
+
+    /**
+     * Get puissanceChaud
+     *
+     * @return integer
+     */
+    public function getPuissanceChaud()
+    {
+        return $this->puissanceChaud;
+    }
+
+    /**
+     * Set puissanceFroid
+     *
+     * @param integer $puissanceFroid
+     *
+     * @return Produit
+     */
+    public function setPuissanceFroid($puissanceFroid)
+    {
+        $this->puissanceFroid = $puissanceFroid;
+
+        return $this;
+    }
+
+    /**
+     * Get puissanceFroid
+     *
+     * @return integer
+     */
+    public function getPuissanceFroid()
+    {
+        return $this->puissanceFroid;
     }
 }

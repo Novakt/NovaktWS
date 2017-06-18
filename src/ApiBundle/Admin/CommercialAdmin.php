@@ -49,7 +49,6 @@ class CommercialAdmin extends AbstractAdmin
         $formMapper
             ->add('login')
             ->add('password')
-            ->add('token')
         ;
     }
 

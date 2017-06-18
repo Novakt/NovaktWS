@@ -38,7 +38,7 @@ class Commercial
     /**
      * @var string
      *
-     * @ORM\Column(name="token", type="string", length=255)
+     * @ORM\Column(name="token", type="string", length=255,nullable=true)
      */
     private $token;
     
@@ -47,6 +47,11 @@ class Commercial
      * @var \ApiBundle\Entity\Commercial
      */
     private $clients;
+    /**
+     * @ORM\Column(name="dateToken",type="datetime",nullable=true)
+     * @var \DateTime
+     */
+    private $dateToken;
 
 
     /**
@@ -170,5 +175,29 @@ class Commercial
     public function getClients()
     {
         return $this->clients;
+    }
+
+    /**
+     * Set dateToken
+     *
+     * @param \DateTime $dateToken
+     *
+     * @return Commercial
+     */
+    public function setDateToken($dateToken)
+    {
+        $this->dateToken = $dateToken;
+
+        return $this;
+    }
+
+    /**
+     * Get dateToken
+     *
+     * @return \DateTime
+     */
+    public function getDateToken()
+    {
+        return $this->dateToken;
     }
 }
