@@ -16,15 +16,14 @@ class EstimationAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('libelle')
             ->add('dateCreation')
             ->add('secteur')
             ->add('surface')
-            ->add('nbBatiment')
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
-            ->add('nbEtages')
         ;
     }
 
@@ -34,15 +33,14 @@ class EstimationAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('id')
             ->add('libelle')
             ->add('dateCreation')
             ->add('secteur')
             ->add('surface')
-            ->add('nbBatiment')
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
-            ->add('nbEtages')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -63,19 +61,9 @@ class EstimationAdmin extends AbstractAdmin
             ->add('dateCreation')
             ->add('secteur')
             ->add('surface')
-            ->add('nbBatiment')
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
-            ->add('nbEtages')
-            ->add('produits', 'sonata_type_model', [
-            		'multiple' => true,
-            		'class'    => 'ApiBundle\Entity\Produit',
-            		'expanded' => true,
-            		'by_reference' => false,
-            		'property' => 'nom'
-            ])
-            ->add('client','sonata_type_model', array('class' => 'ApiBundle\Entity\Client', 'property' => 'intitule'))
         ;
     }
 
@@ -85,15 +73,14 @@ class EstimationAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('id')
             ->add('libelle')
             ->add('dateCreation')
             ->add('secteur')
             ->add('surface')
-            ->add('nbBatiment')
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
-            ->add('nbEtages')
         ;
     }
 }

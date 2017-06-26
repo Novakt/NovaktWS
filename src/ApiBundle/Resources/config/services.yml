@@ -35,12 +35,12 @@ services:
 
     api.admin.estimation:
         class: ApiBundle\Admin\EstimationAdmin
-        arguments: [~, ApiBundle\Entity\Estimation, ApiBundle:EstimationAdmin]
+        arguments: [~, ApiBundle\Entity\Estimation, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Estimation }
 
     api.admin.chantier:
         class: ApiBundle\Admin\ChantierAdmin
-        arguments: [~, ApiBundle\Entity\Chantier, ApiBundle:ChantierAdmin]
+        arguments: [~, ApiBundle\Entity\Chantier, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Chantier }

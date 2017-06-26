@@ -16,16 +16,16 @@ class ChantierAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('nom')
             ->add('lienImage')
             ->add('secteur')
             ->add('surface')
-            ->add('nbBatiment')
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
             ->add('lieu')
-            ->add('etages')
+            ->add('anneesBatiment')
             ->add('description')
         ;
     }
@@ -36,16 +36,16 @@ class ChantierAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('id')
             ->add('nom')
             ->add('lienImage')
             ->add('secteur')
             ->add('surface')
-            ->add('nbBatiment')
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
             ->add('lieu')
-            ->add('etages')
+            ->add('anneesBatiment')
             ->add('description')
             ->add('_action', null, array(
                 'actions' => array(
@@ -67,20 +67,12 @@ class ChantierAdmin extends AbstractAdmin
             ->add('lienImage')
             ->add('secteur')
             ->add('surface')
-            ->add('nbBatiment')
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
             ->add('lieu')
-            ->add('etages')
+            ->add('anneesBatiment')
             ->add('description')
-            ->add('produits', 'sonata_type_model', [
-                        'multiple' => true,
-            			'class'    => 'ApiBundle\Entity\Produit',
-                        'expanded' => false,
-            			'by_reference' => false,
-                        'property' => 'nom'
-                    ])
         ;
     }
 
@@ -90,16 +82,16 @@ class ChantierAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('id')
             ->add('nom')
             ->add('lienImage')
             ->add('secteur')
             ->add('surface')
-            ->add('nbBatiment')
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
             ->add('lieu')
-            ->add('etages')
+            ->add('anneesBatiment')
             ->add('description')
         ;
     }
