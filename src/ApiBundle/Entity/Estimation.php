@@ -49,12 +49,6 @@ class Estimation
      */
     private $surface;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbBatiment", type="smallint")
-     */
-    private $nbBatiment;
 
     /**
      * @var string
@@ -77,12 +71,6 @@ class Estimation
      */
     private $temperatureMoyenne;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbEtages", type="smallint")
-     */
-    private $nbEtages;
     
     /**
      * @ORM\ManyToOne(targetEntity="Client",inversedBy="estimations")
@@ -208,31 +196,6 @@ class Estimation
     {
         return $this->surface;
     }
-
-    /**
-     * Set nbBatiment
-     *
-     * @param integer $nbBatiment
-     *
-     * @return Estimation
-     */
-    public function setNbBatiment($nbBatiment)
-    {
-        $this->nbBatiment = $nbBatiment;
-
-        return $this;
-    }
-
-    /**
-     * Get nbBatiment
-     *
-     * @return int
-     */
-    public function getNbBatiment()
-    {
-        return $this->nbBatiment;
-    }
-
     /**
      * Set typeChantier
      *
@@ -303,30 +266,6 @@ class Estimation
     public function getTemperatureMoyenne()
     {
         return $this->temperatureMoyenne;
-    }
-
-    /**
-     * Set nbEtages
-     *
-     * @param integer $nbEtages
-     *
-     * @return Estimation
-     */
-    public function setNbEtages($nbEtages)
-    {
-        $this->nbEtages = $nbEtages;
-
-        return $this;
-    }
-
-    /**
-     * Get nbEtages
-     *
-     * @return int
-     */
-    public function getNbEtages()
-    {
-        return $this->nbEtages;
     }
     
     public function setClient($client)

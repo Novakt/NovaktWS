@@ -49,12 +49,6 @@ class Estimation
      */
     private $surface;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbBatiment", type="smallint")
-     */
-    private $nbBatiment;
 
     /**
      * @var string
@@ -77,12 +71,6 @@ class Estimation
      */
     private $temperatureMoyenne;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nbEtages", type="smallint")
-     */
-    private $nbEtages;
     
     /**
      * @ORM\ManyToOne(targetEntity="Client",inversedBy="estimations")
@@ -92,8 +80,10 @@ class Estimation
     private $client;
     
     /**
-     * Many Groups have Many Users.
-     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="produits")
+     * @ORM\ManyToMany(targetEntity="Produit", inversedBy="produits")
+     * @ORM\JoinTable(name="produit_estimation",
+     * 					joinColumns={ @ORM\JoinColumn(name="chantier_id",referencedColumnName="id")},
+     * 					inverseJoinColumns={@ORM\JoinColumn(name="produit_id",referencedColumnName="id")})
      */
     private $produits;
 
@@ -206,31 +196,6 @@ class Estimation
     {
         return $this->surface;
     }
-
-    /**
-     * Set nbBatiment
-     *
-     * @param integer $nbBatiment
-     *
-     * @return Estimation
-     */
-    public function setNbBatiment($nbBatiment)
-    {
-        $this->nbBatiment = $nbBatiment;
-
-        return $this;
-    }
-
-    /**
-     * Get nbBatiment
-     *
-     * @return int
-     */
-    public function getNbBatiment()
-    {
-        return $this->nbBatiment;
-    }
-
     /**
      * Set typeChantier
      *
@@ -302,30 +267,6 @@ class Estimation
     {
         return $this->temperatureMoyenne;
     }
-
-    /**
-     * Set nbEtages
-     *
-     * @param integer $nbEtages
-     *
-     * @return Estimation
-     */
-    public function setNbEtages($nbEtages)
-    {
-        $this->nbEtages = $nbEtages;
-
-        return $this;
-    }
-
-    /**
-     * Get nbEtages
-     *
-     * @return int
-     */
-    public function getNbEtages()
-    {
-        return $this->nbEtages;
-    }
     
     public function setClient($client)
     {
@@ -339,5 +280,38 @@ class Estimation
     {
     	return $this->client;
     }
-}
 
+    /**
+     * Add produit
+     *
+     * @param \ApiBundle\Entity\Produit $produit
+     *
+     * @return Estimation
+     */
+    public function addProduit(\ApiBundle\Entity\Produit $produit)
+    {
+        $this->produits[] = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Remove produit
+     *
+     * @param \ApiBundle\Entity\Produit $produit
+     */
+    public function removeProduit(\ApiBundle\Entity\Produit $produit)
+    {
+        $this->produits->removeElement($produit);
+    }
+
+    /**
+     * Get produits
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduits()
+    {
+        return $this->produits;
+    }
+}

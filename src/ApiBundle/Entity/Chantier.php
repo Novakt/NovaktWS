@@ -50,13 +50,6 @@ class Chantier
     private $surface;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="nbBatiment", type="smallint")
-     */
-    private $nbBatiment;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="typeChantier", type="string", length=255)
@@ -87,9 +80,9 @@ class Chantier
     /**
      * @var int
      *
-     * @ORM\Column(name="etages", type="smallint")
+     * @ORM\Column(name="anneesBatiment", type="integer")
      */
-    private $etages;
+    private $anneesBatiment;
     
     /**
      * @var string
@@ -218,31 +211,6 @@ class Chantier
     {
         return $this->surface;
     }
-
-    /**
-     * Set nbBatiment
-     *
-     * @param integer $nbBatiment
-     *
-     * @return Chantier
-     */
-    public function setNbBatiment($nbBatiment)
-    {
-        $this->nbBatiment = $nbBatiment;
-
-        return $this;
-    }
-
-    /**
-     * Get nbBatiment
-     *
-     * @return int
-     */
-    public function getNbBatiment()
-    {
-        return $this->nbBatiment;
-    }
-
     /**
      * Set typeChantier
      *
@@ -364,27 +332,27 @@ class Chantier
     }
 
     /**
-     * Set etages
+     * Set anneesBatiment
      *
-     * @param integer $etages
+     * @param integer $anneesBatiment
      *
      * @return Chantier
      */
-    public function setEtages($etages)
+    public function setAnneesBatiment($anneesBatiment)
     {
-        $this->etages = $etages;
+        $this->anneesBatiment = $anneesBatiment;
 
         return $this;
     }
 
     /**
-     * Get etages
+     * Get anneesBatiment
      *
      * @return int
      */
-    public function getEtages()
+    public function getAnneesBatiment()
     {
-        return $this->etages;
+        return $this->anneesBatiment;
     }
 
     /**
