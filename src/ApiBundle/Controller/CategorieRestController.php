@@ -32,11 +32,11 @@ class CategorieRestController extends BaseController
 		
 		// Si token invalide : accès refusé
 		
-		/*if(!$this->isValid()) {
+		if(!$this->isValid()) {
 		    $response->setStatusCode(Response::HTTP_FORBIDDEN);
 			$response->setContent("Connexion refusee, veuillez vous authentifier avec un token valide");
 			return $response;
-		}*/
+		}
 		
 		//GET  CATEGORIES ET PRODUITS
 		$categories = $this->getCategories();

@@ -27,9 +27,9 @@ class BaseController extends Controller
 		$dateToken = new \DateTime($result[0]["dateToken"]->format('Y-m-d H:i:s'));
 		$now = new \DateTime(date('Y-m-d H:i:s'));
 		$interval = $dateToken->diff($now)->format('%d');
-		if($interval > 7) {
+		/*if($interval > 7) {
 			return false;
-		}
+		}*/
 		return true;
 	}
 	/**

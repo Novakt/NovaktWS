@@ -51,7 +51,7 @@ class CommercialRestController extends BaseController
 			$query = $em->createQuery($req)
 			->setParameter('username', $username)
 			->setParameter('password', $password);
-			$commercial = $query->getSingleResult();
+			$commercial = $query->getOneOrNullResult();
 			
 			$commercial = $repository->findOneByToken($commercial["token"]);
 			
@@ -63,7 +63,7 @@ class CommercialRestController extends BaseController
 			$response = new Response ();
 			$response->setStatusCode ( Response::HTTP_NOT_FOUND );
 			$response->headers->set ( 'Content-Type', 'application/json' );
-			return "not found";
+			return null;
 		}
 		//var_dump($commercial);
 		$com = $em->getRepository ( "ApiBundle:Commercial" )->find($commercial->getId());

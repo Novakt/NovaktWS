@@ -1,0 +1,19 @@
+## Generer controller ##
+php bin/console sonata:admin:generate Produit
+ApiBundle\Entity\Produit
+yes
+
+## liens ##
+
+https://sonata-project.org/bundles/admin/master/doc/reference/console.html
+
+
+-- phpunit
+
+Actually look here at phpunit issue 2432 for some real illumination.
+
+Using vendor/bin/phpunit instead of the global phpunit fixed the issue. No need for the before_install configuration above. Just add this instead.
+
+http://atomrace.com/tester-api-rest-symfony-avec-phpunit/ :
+script:
+  - vendor/bin/phpunit --testdox
