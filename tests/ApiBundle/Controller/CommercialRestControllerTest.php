@@ -4,7 +4,7 @@ namespace ApiBundle\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Récupération des chantiers.
+ * Connexion des commerciaux.
  * @author Thomas
  *
  */
