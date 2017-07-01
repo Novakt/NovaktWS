@@ -144,11 +144,11 @@
     </exec>
   </target>
 
-  <!--<target name="parameters" description="Copy parameters">
-    <exec executable="cp" failonerror="true">
+  <target name="parameters" description="Copy parameters">
+    <!--<exec executable="cp" failonerror="true">
       <arg path="app/config/parameters.jenkins.yml" />
       <arg path="app/config/parameters.yml" />
-    </exec>
-  </target>-->
+    </exec>-->
+  </target>
 
 </project>
