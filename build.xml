@@ -44,7 +44,7 @@
 
   <target name="phpunit" description="Run unit tests with PHPUnit">
     <exec executable="./vendor/bin/phpunit.bat" failonerror="true">
-      <arg value="-c" />
+      <arg value="--testdox" />
       <arg path="${basedir}/app/phpunit.xml" />
     </exec>
   </target>
