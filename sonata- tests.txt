@@ -17,5 +17,5 @@ Using vendor/bin/phpunit instead of the global phpunit fixed the issue. No need 
 http://atomrace.com/tester-api-rest-symfony-avec-phpunit/ :
 script:
   - vendor/bin/phpunit --testdox // ou sans --testdox
-
+--
 --
