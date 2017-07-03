@@ -89,7 +89,7 @@ class CommercialRestController extends BaseController
 			$em->flush ();
 			return $com->getToken();
 		}
-		return $com->getToken();
+		return $com;
 	}
 	/**
 	 * Générer la token d'Authentification.

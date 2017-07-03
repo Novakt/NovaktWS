@@ -334,7 +334,7 @@ class Chantier
     /**
      * Set anneesBatiment
      *
-     * @param integer $anneesBatiment
+     * @param datet $anneesBatiment
      *
      * @return Chantier
      */

@@ -80,16 +80,12 @@ class Estimation
     private $client;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Produit", inversedBy="produits")
-     * @ORM\JoinTable(name="produit_estimation",
-     * 					joinColumns={ @ORM\JoinColumn(name="chantier_id",referencedColumnName="id")},
-     * 					inverseJoinColumns={@ORM\JoinColumn(name="produit_id",referencedColumnName="id")})
+     * @var int
+     *
+     * @ORM\Column(name="anneesBatiment", type="integer")
      */
-    private $produits;
-
-    public function __construct() {
-    	$this->produits = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $anneesBatiment;
+    
     
     /**
      * Get id
@@ -280,38 +276,27 @@ class Estimation
     {
     	return $this->client;
     }
-
     /**
-     * Add produit
+     * Set anneesBatiment
      *
-     * @param \ApiBundle\Entity\Produit $produit
+     * @param integer $anneesBatiment
      *
      * @return Estimation
      */
-    public function addProduit(\ApiBundle\Entity\Produit $produit)
+    public function setAnneesBatiment($anneesBatiment)
     {
-        $this->produits[] = $produit;
-
+        $this->anneesBatiment = $anneesBatiment;
+        
         return $this;
     }
-
+    
     /**
-     * Remove produit
+     * Get anneesBatiment
      *
-     * @param \ApiBundle\Entity\Produit $produit
+     * @return int
      */
-    public function removeProduit(\ApiBundle\Entity\Produit $produit)
+    public function getAnneesBatiment()
     {
-        $this->produits->removeElement($produit);
-    }
-
-    /**
-     * Get produits
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProduits()
-    {
-        return $this->produits;
+        return $this->anneesBatiment;
     }
 }
