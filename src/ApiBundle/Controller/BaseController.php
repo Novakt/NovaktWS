@@ -39,7 +39,9 @@ class BaseController extends Controller
 	 */
 	protected function createDate($date) {
 
-		$dateformat = \DateTime::createFromFormat('j:m:Y:H:i',$date);
+		//$dateformat = \DateTime::createFromFormat('j:m:Y:H:i',$date);
+	    $dateformat = \DateTime::createFromFormat('Y-m-d',$date);
+		var_dump($dateformat);
 		if($dateformat == false) {
 			return false;
 		}

@@ -62,8 +62,8 @@ class CommercialRestController extends BaseController
 		if ($commercial == null) {
 			$response = new Response ();
 			$response->setStatusCode ( Response::HTTP_NOT_FOUND );
-			$response->headers->set ( 'Content-Type', 'application/json' );
-			return null;
+			return $commercial;
+			exit;
 		}
 		//var_dump($commercial);
 		$com = $em->getRepository ( "ApiBundle:Commercial" )->find($commercial->getId());
