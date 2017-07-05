@@ -73,6 +73,13 @@ class ChantierAdmin extends AbstractAdmin
             ->add('lieu')
             ->add('anneesBatiment')
             ->add('description')
+            ->add('produits', 'sonata_type_model', [
+                'multiple' => true,
+                'class'    => 'ApiBundle\Entity\Produit',
+                'expanded' => true,
+                'by_reference' => false,
+                'property' => 'nom'
+            ])
         ;
     }
 
