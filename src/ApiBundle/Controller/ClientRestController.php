@@ -64,7 +64,7 @@ class ClientRestController extends BaseController
 		$clients = json_decode($request->request->get("clients"),true);
 		
 		// Si les paramètres reçus sont inconnu/invalide
-		if($this->token == null || $clients == null)  {
+		if($this->token == null )  {
 			$response->setStatusCode(Response::HTTP_BAD_REQUEST);
 			$response->setContent("Paramètre(s) reçu(s) invalide(s)");
 			return $response;
