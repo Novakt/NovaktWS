@@ -56,6 +56,13 @@ class ClientAdmin extends AbstractAdmin
             ->add('ville')
             ->add('tel')
             ->add('mail')
+            ->add('commercial', 'sonata_type_model', [
+                'multiple' => false,
+                'class'    => 'ApiBundle\Entity\Commercial',
+                'expanded' => false,
+                'by_reference' => false,
+                'property' => 'nom'
+            ])
         ;
     }
 

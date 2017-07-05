@@ -18,6 +18,7 @@ class CommercialAdmin extends AbstractAdmin
         $datagridMapper
             ->add('login')
             ->add('password')
+            ->add('nom')
             ->add('token')
         ;
     }
@@ -30,6 +31,7 @@ class CommercialAdmin extends AbstractAdmin
         $listMapper
             ->add('login')
             ->add('password')
+            ->add('nom')
             ->add('token')
             ->add('_action', null, array(
                 'actions' => array(
@@ -49,6 +51,7 @@ class CommercialAdmin extends AbstractAdmin
         $formMapper
             ->add('login')
             ->add('password')
+            ->add('nom')
         ;
     }
 
@@ -60,6 +63,7 @@ class CommercialAdmin extends AbstractAdmin
         $showMapper
             ->add('login')
             ->add('password')
+            ->add('nom')
             ->add('token')
         ;
     }

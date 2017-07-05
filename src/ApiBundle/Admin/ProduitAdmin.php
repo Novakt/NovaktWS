@@ -65,6 +65,13 @@ class ProduitAdmin extends AbstractAdmin
             ->add('lienImage')
             ->add('puissanceChaud')
             ->add('puissanceFroid')
+            ->add('categorie', 'sonata_type_model', [
+                'multiple' => false,
+                'class'    => 'ApiBundle\Entity\Categorie',
+                'expanded' => false,
+                'by_reference' => false,
+                'property' => 'nom'
+            ])
         ;
     }
 

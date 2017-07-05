@@ -64,6 +64,13 @@ class EstimationAdmin extends AbstractAdmin
             ->add('typeChantier')
             ->add('typeBatiment')
             ->add('temperatureMoyenne')
+            ->add('client', 'sonata_type_model', [
+                'multiple' => false,
+                'class'    => 'ApiBundle\Entity\Client',
+                'expanded' => false,
+                'by_reference' => false,
+                'property' => 'intitule'
+            ])
         ;
     }
 
