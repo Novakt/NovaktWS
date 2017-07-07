@@ -83,15 +83,28 @@ class Produit
     /**
      * @var int
      *
-     * @ORM\Column(name="puissanceChaud", type="integer")
+     * @ORM\Column(name="puissanceCalorifiqueChaud", type="integer")
      */
-    private $puissanceChaud;
+    private $puissanceCalorifiqueChaud;
     /**
      * @var int
      *
-     * @ORM\Column(name="puissanceFroid", type="integer")
+     * @ORM\Column(name="puissanceCalorifiqueFroid", type="integer")
      */
-    private $puissanceFroid;
+    private $puissanceCalorifiqueFroid;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissanceElectriqueChaud", type="integer")
+     */
+    private $puissanceElectriqueChaud;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissanceElectriqueFroid", type="integer")
+     */
+    private $puissanceElectriqueFroid;
     
     
 
@@ -330,50 +343,98 @@ class Produit
     }
 
     /**
-     * Set puissanceChaud
+     * Set puissanceCalorifiqueChaud
      *
-     * @param integer $puissanceChaud
+     * @param integer $puissanceCalorifiqueChaud
      *
      * @return Produit
      */
-    public function setPuissanceChaud($puissanceChaud)
+    public function setPuissanceCalorifiqueChaud($puissanceCalorifiqueChaud)
     {
-        $this->puissanceChaud = $puissanceChaud;
+        $this->puissanceCalorifiqueChaud = $puissanceCalorifiqueChaud;
 
         return $this;
     }
 
     /**
-     * Get puissanceChaud
+     * Get puissanceCalorifiqueChaud
      *
      * @return integer
      */
-    public function getPuissanceChaud()
+    public function getPuissanceCalorifiqueChaud()
     {
-        return $this->puissanceChaud;
+        return $this->puissanceCalorifiqueChaud;
     }
 
     /**
-     * Set puissanceFroid
+     * Set puissanceCalorifiqueFroid
      *
-     * @param integer $puissanceFroid
+     * @param integer $puissanceCalorifiqueFroid
      *
      * @return Produit
      */
-    public function setPuissanceFroid($puissanceFroid)
+    public function setPuissanceCalorifiqueFroid($puissanceCalorifiqueFroid)
     {
-        $this->puissanceFroid = $puissanceFroid;
+        $this->puissanceCalorifiqueFroid = $puissanceCalorifiqueFroid;
 
         return $this;
     }
 
     /**
-     * Get puissanceFroid
+     * Get puissanceCalorifiqueFroid
      *
      * @return integer
      */
-    public function getPuissanceFroid()
+    public function getPuissanceCalorifiqueFroid()
     {
-        return $this->puissanceFroid;
+        return $this->puissanceCalorifiqueFroid;
+    }
+
+    /**
+     * Set puissanceElectriqueChaud
+     *
+     * @param integer $puissanceElectriqueChaud
+     *
+     * @return Produit
+     */
+    public function setPuissanceElectriqueChaud($puissanceElectriqueChaud)
+    {
+        $this->puissanceElectriqueChaud = $puissanceElectriqueChaud;
+
+        return $this;
+    }
+
+    /**
+     * Get puissanceElectriqueChaud
+     *
+     * @return integer
+     */
+    public function getPuissanceElectriqueChaud()
+    {
+        return $this->puissanceElectriqueChaud;
+    }
+
+    /**
+     * Set puissanceElectriqueFroid
+     *
+     * @param integer $puissanceElectriqueFroid
+     *
+     * @return Produit
+     */
+    public function setPuissanceElectriqueFroid($puissanceElectriqueFroid)
+    {
+        $this->puissanceElectriqueFroid = $puissanceElectriqueFroid;
+
+        return $this;
+    }
+
+    /**
+     * Get puissanceElectriqueFroid
+     *
+     * @return integer
+     */
+    public function getPuissanceElectriqueFroid()
+    {
+        return $this->puissanceElectriqueFroid;
     }
 }

@@ -22,8 +22,10 @@ class ProduitAdmin extends AbstractAdmin
             ->add('type')
             ->add('description')
             ->add('lienImage')
-            ->add('puissanceChaud')
-            ->add('puissanceFroid')
+            ->add('puissanceCalorifiqueChaud')
+            ->add('puissanceCalorifiqueFroid')
+            ->add('puissanceElectriqueChaud')
+            ->add('puissanceElectriqueFroid')
         ;
     }
 
@@ -39,8 +41,10 @@ class ProduitAdmin extends AbstractAdmin
             ->add('type')
             ->add('description')
             ->add('lienImage')
-            ->add('puissanceChaud')
-            ->add('puissanceFroid')
+            ->add('puissanceCalorifiqueChaud')
+            ->add('puissanceCalorifiqueFroid')
+            ->add('puissanceElectriqueChaud')
+            ->add('puissanceElectriqueFroid')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -63,8 +67,10 @@ class ProduitAdmin extends AbstractAdmin
             ->add('type')
             ->add('description')
             ->add('lienImage')
-            ->add('puissanceChaud')
-            ->add('puissanceFroid')
+            ->add('puissanceCalorifiqueChaud')
+            ->add('puissanceCalorifiqueFroid')
+            ->add('puissanceElectriqueChaud')
+            ->add('puissanceElectriqueFroid')
             ->add('categorie', 'sonata_type_model', [
                 'multiple' => false,
                 'class'    => 'ApiBundle\Entity\Categorie',
@@ -87,8 +93,10 @@ class ProduitAdmin extends AbstractAdmin
             ->add('type')
             ->add('description')
             ->add('lienImage')
-            ->add('puissanceChaud')
-            ->add('puissanceFroid')
+            ->add('puissanceCalorifiqueChaud')
+            ->add('puissanceCalorifiqueFroid')
+            ->add('puissanceElectriqueChaud')
+            ->add('puissanceElectriqueFroid')
         ;
     }
 }

@@ -83,15 +83,28 @@ class Produit
     /**
      * @var int
      *
-     * @ORM\Column(name="puissanceChaud", type="integer")
+     * @ORM\Column(name="puissanceCalorifiqueChaud", type="integer")
      */
-    private $puissanceChaud;
+    private $puissanceCalorifiqueChaud;
     /**
      * @var int
      *
-     * @ORM\Column(name="puissanceFroid", type="integer")
+     * @ORM\Column(name="puissanceCalorifiqueFroid", type="integer")
      */
-    private $puissanceFroid;
+    private $puissanceCalorifiqueFroid;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissanceElectriqueChaud", type="integer")
+     */
+    private $puissanceElectriqueChaud;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="puissanceElectriqueFroid", type="integer")
+     */
+    private $puissanceElectriqueFroid;
     
     
 
