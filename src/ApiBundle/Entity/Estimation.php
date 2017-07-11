@@ -73,7 +73,7 @@ class Estimation
 
     
     /**
-     * @ORM\ManyToOne(targetEntity="Client",inversedBy="estimations")
+     * @ORM\ManyToOne(targetEntity="Client",inversedBy="estimations" ,cascade={"persist"})
      * @ORM\JoinColumn(name="client_id",referencedColumnName="id")
      * @var \ApiBundle\Entity\Client
      */

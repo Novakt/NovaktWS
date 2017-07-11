@@ -47,7 +47,7 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
@@ -340,5 +340,101 @@ class Produit
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set puissanceCalorifiqueChaud
+     *
+     * @param integer $puissanceCalorifiqueChaud
+     *
+     * @return Produit
+     */
+    public function setPuissanceCalorifiqueChaud($puissanceCalorifiqueChaud)
+    {
+        $this->puissanceCalorifiqueChaud = $puissanceCalorifiqueChaud;
+
+        return $this;
+    }
+
+    /**
+     * Get puissanceCalorifiqueChaud
+     *
+     * @return integer
+     */
+    public function getPuissanceCalorifiqueChaud()
+    {
+        return $this->puissanceCalorifiqueChaud;
+    }
+
+    /**
+     * Set puissanceCalorifiqueFroid
+     *
+     * @param integer $puissanceCalorifiqueFroid
+     *
+     * @return Produit
+     */
+    public function setPuissanceCalorifiqueFroid($puissanceCalorifiqueFroid)
+    {
+        $this->puissanceCalorifiqueFroid = $puissanceCalorifiqueFroid;
+
+        return $this;
+    }
+
+    /**
+     * Get puissanceCalorifiqueFroid
+     *
+     * @return integer
+     */
+    public function getPuissanceCalorifiqueFroid()
+    {
+        return $this->puissanceCalorifiqueFroid;
+    }
+
+    /**
+     * Set puissanceElectriqueChaud
+     *
+     * @param integer $puissanceElectriqueChaud
+     *
+     * @return Produit
+     */
+    public function setPuissanceElectriqueChaud($puissanceElectriqueChaud)
+    {
+        $this->puissanceElectriqueChaud = $puissanceElectriqueChaud;
+
+        return $this;
+    }
+
+    /**
+     * Get puissanceElectriqueChaud
+     *
+     * @return integer
+     */
+    public function getPuissanceElectriqueChaud()
+    {
+        return $this->puissanceElectriqueChaud;
+    }
+
+    /**
+     * Set puissanceElectriqueFroid
+     *
+     * @param integer $puissanceElectriqueFroid
+     *
+     * @return Produit
+     */
+    public function setPuissanceElectriqueFroid($puissanceElectriqueFroid)
+    {
+        $this->puissanceElectriqueFroid = $puissanceElectriqueFroid;
+
+        return $this;
+    }
+
+    /**
+     * Get puissanceElectriqueFroid
+     *
+     * @return integer
+     */
+    public function getPuissanceElectriqueFroid()
+    {
+        return $this->puissanceElectriqueFroid;
     }
 }
