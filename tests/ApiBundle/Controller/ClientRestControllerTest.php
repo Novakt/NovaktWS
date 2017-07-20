@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class ClientRestControllerTest extends WebTestCase
 {
-	private  $token  = "e966223a1cfa25e8955d4c2331386818c09a8f859cddd7e0cc93e7d1dfe91b8a";
+	private  $token  = "035bfa664103eb9f9deac17d44a51218a434b4ab5b5cfcbb38a7e60424458206";
 	private $login = "toto";
 	private $password = "tata";
 
