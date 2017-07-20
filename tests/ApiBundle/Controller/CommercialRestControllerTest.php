@@ -24,7 +24,7 @@ class CommercialRestControllerTest extends WebTestCase
 		$client = static::createClient();
 		$datas = array(
 				"username" => $this->login,
-				"password" => $this->password
+				"password" => hash('sha256',$this->password)
 		);
 		$client->request("POST", "api/logins",$datas);
 		$this->assertEquals(200,$client->getResponse()->getStatusCode());
