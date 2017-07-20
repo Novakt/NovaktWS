@@ -96,6 +96,7 @@ class ClientRestController extends BaseController
 		    $clientFound->setVille($client["ville"]);
 		    $clientFound->setTel($client["tel"]);
 		    $clientFound->setMail($client["mail"]);
+		    $clientFound->setCommercial($this->getCommercial());
 		    		  		    
 		 
 		    if($client["estimations"] != null) {
@@ -139,6 +140,14 @@ class ClientRestController extends BaseController
 		$commercial = $query->getResult();
 		return $commercial["0"]["id"];
 	
+	}
+	
+	private function getCommercial() {
+	    
+	    $repositoryClient = $this->getDoctrine()->getRepository('ApiBundle:Commercial');
+	    $com = $repositoryClient->findOneByToken($this->token);
+	    return $com;
+	    
 	}
 	
 	private function getClientsByIdCommercial($idCommercial) {
